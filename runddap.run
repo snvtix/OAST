@@ -1,0 +1,11 @@
+reset;
+model ddap_uBin_yInt.mod;     # <- wybierz scenariusz
+data ddap-net12-25Z.txt;
+
+option solver cplex;
+solve;
+
+display Obj;
+display {e in Links} y[e];
+display {e in Links} moduleCapacity*y[e];
+display {e in Links} load[e];

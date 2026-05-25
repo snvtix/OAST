@@ -1,0 +1,10 @@
+reset;
+model dap_uBin_yInt.mod;      # <- wybierz scenariusz
+data dap-net12-25Z.txt;
+
+option solver cplex;          # albo gurobi / glpk
+solve;
+
+display Obj, z;
+display {e in Links} load[e];
+display {e in Links} moduleCapacity*link_moduleCount[e];
